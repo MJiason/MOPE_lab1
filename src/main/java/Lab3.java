@@ -13,6 +13,7 @@ public class Lab3 {
     double Sb_2;
     int m, n;
     private static int countCoef = 3;
+    private Data data = new Data();
     MatrixFunc matrixFunc = new MatrixFunc();
 
     public Lab3(int m, int n, float x_min1, float x_min2, float x_min3, float x_max1, float x_max2, float x_max3, float y_min, float y_max) {

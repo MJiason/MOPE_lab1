@@ -1,7 +1,10 @@
 public class Main {
     public static void main(String[] args) {
+        int m = 3;
+        int n = 4;
+        Data data = new Data();
         MatrixFunc matrixFunc = new MatrixFunc();
-        Lab3 lab3 = new Lab3(3, 4, -15, 25, -15, 30, 65, -5, 202, 230);
+        Lab3 lab3 = new Lab3(m, n, -15, 25, -15, 30, 65, -5, 202, 230);
 //        matrixFunc.printMatrix("x", lab3.matrix_x_cod);
         double[][] matrix_x = lab3.genMatrix_x(4, lab3.matrix_x_cod);
         double[][] matrix_y = lab3.genMatrix();
@@ -28,8 +31,12 @@ public class Main {
         matrixFunc.printMatrix("Coeficients", coef);
         matrixFunc.printMatrix("NaturCoef", naturCoef);
         matrixFunc.printMatrix("Dispersion", dispersion);
-        System.out.format("criterionCochrane:\nf1: " + 3 + "\nf2: " + 4 + "\nGp: %2.2f", criterionCochrane);
-        System.out.format("StudentCriterion:\nf3=f1*f2 =(m-1)*N: " + 8);
+        if (criterionCochrane * 1000 > data.cohrenCriterium[m][n]){
+            System.out.println("Дисперсія неоднорідна!");
+            System.exit(0);
+        }
+        System.out.format("criterionCochrane:\nf1: " + m + "\nf2: " + n + "\nGp: %2.2f, отже дисперсія однорідна", criterionCochrane);
+        System.out.format("\nStudentCriterion:\nf3=f1*f2 =(m-1)*N: " + 8);
         matrixFunc.printMatrix("\nt", criterionStudent);
         System.out.println("FisherCriterion:\nf4 = N – d=2\nf3 = f1*f2=(m-1)*N=2*4=8: " + fisherCriterion/100);
 
